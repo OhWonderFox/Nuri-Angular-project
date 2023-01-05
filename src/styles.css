@@ -16,20 +16,20 @@
 }*/
 
 body {
-  background-image: linear-gradient(to top, #ff9a9e 0%, #fecfef 99%, #fecfef 100%);
+  background-color: rgba(56,51,88,255);
 }
 
 .text-info:hover {
-  background-image: linear-gradient(to top, #ff9a9e 0%, #fecfef 99%, #fecfef 100%);
+  background-color: darkgray;
 }
 
 .text-info:active {
-  background-image: linear-gradient(to top, #ff9a9e 0%, #fecfef 99%, #fecfef 100%);
+  background-color: rgba(56,51,88,255);
   transform: scale(0.95);
 }
 
 .active {
-  background-image: linear-gradient(to top, #ff9a9e 0%, #fecfef 99%, #fecfef 100%);
+  background-color: rgba(56,51,88,255);
 }
 
 

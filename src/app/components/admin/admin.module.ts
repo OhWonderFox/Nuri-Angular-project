@@ -6,6 +6,7 @@ import { FooterComponent } from './components/footer/footer.component';
 import { HeaderComponent } from './components/header/header.component';
 import { HomeComponent } from './components/home/home.component';
 import { AdminDashboardComponent } from './components/admin-dashboard/admin-dashboard.component';
+import { Menu1Component } from './components/menu1/menu1.component';
 
 
 @NgModule({
@@ -13,7 +14,8 @@ import { AdminDashboardComponent } from './components/admin-dashboard/admin-dash
     FooterComponent,
     HeaderComponent,
     HomeComponent,
-    AdminDashboardComponent
+    AdminDashboardComponent,
+    Menu1Component
   ],
   imports: [
     CommonModule,
