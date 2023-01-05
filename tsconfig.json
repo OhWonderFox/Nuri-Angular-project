@@ -16,14 +16,19 @@
     "experimentalDecorators": true,
     "moduleResolution": "node",
     "importHelpers": true,
-    "target": "ES2022",
-    "module": "ES2022",
-    "useDefineForClassFields": false,
+    "target": "es2017",
+    "module": "es2020",
     "lib": [
-      "ES2022",
+      "es2020",
       "dom"
-    ]
+    ],
   },
+  "typeRoots": [
+    "node_modules/@types",
+    "node_modules/@angular",
+    "node_modules/@angular/common",
+    "node_modules/@angular/common/http",
+  ],
   "angularCompilerOptions": {
     "enableI18nLegacyMessageIdFormat": false,
     "strictInjectionParameters": true,
