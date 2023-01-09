@@ -30,7 +30,7 @@ export class LoginComponent implements OnInit {
       'password': new FormControl('',
         [
           Validators.required,
-          Validators.pattern(/^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$/)
+          Validators.pattern(/(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[@$!%*#?&^_-]).{8,}/)
         ])
     });
     if (this.authService.isLoggedIn()) {
