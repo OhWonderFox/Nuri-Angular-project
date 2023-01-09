@@ -23,7 +23,7 @@ export class AuthService {
   }
 
   login(userInfo: {email: string, password: string}): Observable<string | boolean> {
-    if (userInfo.email === 'nuri@gmail.com' && userInfo.password === 'Chris123'){
+    if (userInfo.email === 'nuri@gmail.com' && userInfo.password === 'Emma_188'){
       this.setToken('alksflkgsklgjslkjffksdgjnsadgskmg')
       return of(true)
     }
