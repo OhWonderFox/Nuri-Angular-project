@@ -7,6 +7,7 @@ import { HeaderComponent } from './components/header/header.component';
 import { HomeComponent } from './components/home/home.component';
 import { AdminDashboardComponent } from './components/admin-dashboard/admin-dashboard.component';
 import { Menu1Component } from './components/menu1/menu1.component';
+import { BlogComponent } from './components/blog/blog.component';
 
 
 @NgModule({
@@ -15,7 +16,8 @@ import { Menu1Component } from './components/menu1/menu1.component';
     HeaderComponent,
     HomeComponent,
     AdminDashboardComponent,
-    Menu1Component
+    Menu1Component,
+    BlogComponent
   ],
   imports: [
     CommonModule,
