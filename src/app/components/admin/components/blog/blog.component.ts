@@ -4,36 +4,31 @@ import { Component } from '@angular/core';
 @Component({
   selector: 'app-blog',
   templateUrl: './blog.component.html',
-  styleUrls: ['./blog.component.css'],
+  styleUrls: ['./blog.component.css']
 })
-export class BlogComponent {
-  blogs: Array<blogType>;
 
-  constructor() {
-    this.blogs = new Array<blogType>();
+export class BlogComponent {
+
+  constructor() { }
+  blogs = []
+  ngOnInit() {
+
   }
-  ngOnInit() {}
-  addBlog(title: any, content: any) {
+ 
+  addBlog(title: any,content: any) {
     //console.log(title.value,content.value);
     //let blog = { "title": any; "content": any }[] = [];
 
-    let blog = new blogType(title.value, content.value);
-    if (localStorage.getItem('blogs')) {
-      this.blogs = JSON.parse(localStorage.getItem('blogs')!);
+    let blog = {"title": title.value, "content": content.value};
+    if(localStorage.getItem("blogs")){
+      this.blogs =  JSON.parse(localStorage.getItem("blogs")!)
     }
-    this.blogs.push(blog);
-    localStorage.setItem('blogs', JSON.stringify(this.blogs));
-    title.value = '';
-    content.value = '';
-    alert('Blog Added!');
-  }
-}
-export class blogType {
-  title: string;
-  content: string;
+    this.blogs.push(blog)
+    localStorage.setItem("blogs",JSON.stringify(this.blogs))
+    title.value = ""
+    content.value = ""
+    alert("Blog Added!")
 
-  constructor(title: string, content: string) {
-    this.title = title;
-    this.content = content;
   }
+
 }
