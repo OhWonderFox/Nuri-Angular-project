@@ -31,13 +31,6 @@
       content.value = '';
       alert('Blog Added!');
     }
-    removeBlog(blog:any){
-      let index = this.blogs.indexOf(blog);
-      //console.log(blog);
-      this.blogs.splice(index,1);
-      localStorage.setItem('blogs', JSON.stringify(this.blogs));
-      alert("Blog has been Deleted!");
-    }
   }
   export class blogType {
     title: string;
