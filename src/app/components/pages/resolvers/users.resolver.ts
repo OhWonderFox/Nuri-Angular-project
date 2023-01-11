@@ -6,7 +6,7 @@ import {
 } from '@angular/router';
 import {delay, Observable, of} from 'rxjs';
 import {User} from '../user';
-import {AdminService} from '../services/admin.service';
+import {AdminService} from '../services/pages.service';
 
 @Injectable({
   providedIn: 'root'

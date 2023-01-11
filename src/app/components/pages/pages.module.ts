@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
-import { AdminRoutingModule } from './admin-routing.module';
+import { PagesRoutingModule } from './pages-routing.module';
 import { FooterComponent } from './components/footer/footer.component';
 import { HeaderComponent } from './components/header/header.component';
 import { HomeComponent } from './components/home/home.component';
@@ -21,7 +21,7 @@ import { BlogComponent } from './components/blog/blog.component';
   ],
   imports: [
     CommonModule,
-    AdminRoutingModule
+    PagesRoutingModule
   ]
 })
-export class AdminModule { }
+export class PagesModule { }

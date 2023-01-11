@@ -5,7 +5,7 @@ import {
   ActivatedRouteSnapshot
 } from '@angular/router';
 import {catchError, delay, EMPTY, Observable, of} from 'rxjs';
-import {AdminService} from '../services/admin.service';
+import {AdminService} from '../services/pages.service';
 import {User} from '../user';
 
 @Injectable({
