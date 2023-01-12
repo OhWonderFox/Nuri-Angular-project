@@ -8,8 +8,8 @@ import { HomeComponent } from './components/home/home.component';
 import { AdminDashboardComponent } from './components/admin-dashboard/admin-dashboard.component';
 import { Menu1Component } from './components/menu1/menu1.component';
 import { BlogComponent } from './components/blog/blog.component';
-//import { GameComponent } from './components/game/game.component';
-//import { BoardComponent } from './components/board/board.component';
+import { GameComponent } from './components/game/game.component';
+import { BoardComponent } from './components/board/board.component';
 
 
 @NgModule({
@@ -20,8 +20,8 @@ import { BlogComponent } from './components/blog/blog.component';
     AdminDashboardComponent,
     Menu1Component,
     BlogComponent,
- //   GameComponent,
- //   BoardComponent
+    GameComponent,
+    BoardComponent
   ],
   imports: [
     CommonModule,
