@@ -1,22 +1,11 @@
-/* You can add global styles to this file, and also import other style files */
-/* Importing Bootstrap CSS file. */
+*{
+  margin: 0;
+  padding: 0;
 
-/*.gradient-custom {
-  background: #6a11cb;
-  background: -webkit-linear-gradient(
-      to right,
-      rgba(106, 17, 203, 1),
-      rgba(37, 117, 252, 1)
-  );
-  background: linear-gradient(
-      to right,
-      rgba(106, 17, 203, 1),
-      rgba(37, 117, 252, 1)
-  );
-}*/
-
+}
 body {
-  background-color: rgba(56,51,88,255);
+ /* background-color: rgba(56,51,88,255);*/
+ background: linear-gradient(to bottom left, #00ffcc 0%, #cc99ff 100%);
 }
 
 .text-info:hover {
