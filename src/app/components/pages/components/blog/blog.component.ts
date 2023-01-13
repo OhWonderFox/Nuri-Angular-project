@@ -11,7 +11,6 @@ export class BlogComponent {
 
   constructor() {
     this.blogs = new Array<blogType>();
-    this.blogs = [];
   }
 
   ngOnInit() {
@@ -19,15 +18,13 @@ export class BlogComponent {
   }
 
   addBlog(title: any, content: any) {
-    //console.log(title.value,content.value);
-    //let blog = { "title": any; "content": any }[] = [];
 
     let blog = new blogType(title.value, content.value);
     if (localStorage.getItem('blogs')) {
       this.blogs = JSON.parse(localStorage.getItem('blogs')!);
     }
 
-    this.blogs.push(blog);
+    this.blogs.push(blog); //error occurs because of that line. Runtime error
     localStorage.setItem('blogs', JSON.stringify(this.blogs));
     title.value = '';
     content.value = '';
