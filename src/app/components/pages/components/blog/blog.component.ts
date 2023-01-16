@@ -14,11 +14,14 @@ export class BlogComponent {
   }
 
   ngOnInit() {
-    this.blogs = JSON.parse(localStorage.getItem("blogs")!);
+    var current = localStorage.getItem('blogs');
+    if (current !== null) {
+      this.blogs = JSON.parse(current);
+    }
+    console.log('this.blogs is: ' + this.blogs);
   }
 
   addBlog(title: any, content: any) {
-
     let blog = new blogType(title.value, content.value);
     if (localStorage.getItem('blogs')) {
       this.blogs = JSON.parse(localStorage.getItem('blogs')!);
@@ -30,12 +33,12 @@ export class BlogComponent {
     content.value = '';
     alert('Blog Added!');
   }
-  removeBlog(blog:any){
+  removeBlog(blog: any) {
     let index = this.blogs.indexOf(blog);
     //console.log(blog);
-    this.blogs.splice(index,1);
+    this.blogs.splice(index, 1);
     localStorage.setItem('blogs', JSON.stringify(this.blogs));
-    alert("Blog has been Deleted!");
+    alert('Blog has been Deleted!');
   }
 }
 export class blogType {
