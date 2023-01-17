@@ -8,9 +8,7 @@ import { Component } from '@angular/core';
 export class GameComponent {
 
   squares:any = []
-  xIsNext = true;
   winner = '';
-  counter = 0;
   isDraw = '';
   freshpage = true;
 
@@ -22,19 +20,12 @@ export class GameComponent {
     this.squares = Array(9).fill(null);
     this.winner = '';
     this.isDraw = '';
-    this.counter = 0;
     this.freshpage = false;
   }
 
-  get player() {
-    return this.xIsNext?'X':'O'
-  }
 
-  makeMove(idx:number) {
+makeMove(idx:number) {
 
   }
 
-  calculateWinner() {
-    
-  }
 }
