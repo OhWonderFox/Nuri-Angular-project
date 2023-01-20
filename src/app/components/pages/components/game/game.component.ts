@@ -20,7 +20,7 @@ export class GameComponent {
     this.squares = Array(9).fill(null);
     this.winner = '';
     this.isDraw = '';
-    this.freshpage = false;
+    this.freshpage = false; 
   }
 
 
