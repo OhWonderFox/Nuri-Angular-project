@@ -1,1 +1,4 @@
-<button></button>
+<button *ngIf="!value">{{value}}</button>
+<button *ngIf="value == 'X'">{{value}}</button>
+<button *ngIf="value == 'O'">{{value}}</button>
+<!--<button></button>-->
