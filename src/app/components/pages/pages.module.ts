@@ -9,7 +9,7 @@ import { AdminDashboardComponent } from './components/admin-dashboard/admin-dash
 import { Menu1Component } from './components/menu1/menu1.component';
 import { BlogComponent } from './components/blog/blog.component';
 import { GameComponent } from './components/game/game.component';
-import { BoardComponent } from './components/board/board.component';
+import { SquareComponent } from './components/square/square.component';
 
 
 @NgModule({
@@ -21,7 +21,7 @@ import { BoardComponent } from './components/board/board.component';
     Menu1Component,
     BlogComponent,
     GameComponent,
-    BoardComponent
+    SquareComponent
   ],
   imports: [
     CommonModule,

@@ -5,7 +5,7 @@ import {HomeComponent} from './components/home/home.component';
 import {Menu1Component} from './components/menu1/menu1.component';
 import {BlogComponent} from './components/blog/blog.component';
 import {GameComponent} from './components/game/game.component';
-import {BoardComponent} from './components/board/board.component';
+import {SquareComponent} from './components/square/square.component';
 import {UserResolver} from './resolvers/user.resolver';
 import {UsersResolver} from './resolvers/users.resolver';
 
