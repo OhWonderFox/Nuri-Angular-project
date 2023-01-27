@@ -46,27 +46,20 @@ export class GameComponent {
 
   }
 
-  checkIndicesEqual(val: string, idx1: number, idx2: number, idx3: number){
+  checkIndicesEqual(val: string, idx1: number, idx2: number, idx3: number): boolean{
 
-      if(this.squares[idx1] === val && this.squares[idx1] === this.squares[idx2] && this.squares[idx1] === this.squares[idx3]){
-        return this.squares[idx1];
-      }
-
-    return null;
+      return (this.squares[idx1] === val && this.squares[idx2] === val && this.squares[idx3] === val);
   }
 
   checkFor3(val: string): boolean {
-    if( (this.checkIndicesEqual(val, 0,1,2) || 
+    return (this.checkIndicesEqual(val, 0,1,2) || 
          this.checkIndicesEqual(val, 3,4,5) || 
          this.checkIndicesEqual(val, 6,7,8) ||
          this.checkIndicesEqual(val, 0,3,6) ||
          this.checkIndicesEqual(val, 1,4,7) ||
          this.checkIndicesEqual(val, 2,5,8) ||
          this.checkIndicesEqual(val, 0,4,8) ||
-         this.checkIndicesEqual(val, 2,4,6) ) === val){
-      return true;
-    }
-      return false;
+         this.checkIndicesEqual(val, 2,4,6) ) 
   }
 
   checkWinner(){
