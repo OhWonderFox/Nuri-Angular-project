@@ -46,21 +46,24 @@ export class GameComponent {
 
   }
 
-  checkIndicesEqual(){
+  checkIndicesEqual(val: string, idx1: number, idx2: number, idx3: number){
 
-    const wins = [[0,1,2],[3,4,5],[6,7,8],[0,3,6],[1,4,7],[2,5,8],[0,4,8],[2,4,6]]
-    
-    for(let i=0;i<wins.length;i++) {
-      const [idx1,idx2,idx3] = wins[i];
-      if(this.squares[idx1] && this.squares[idx1] === this.squares[idx2] && this.squares[idx1] === this.squares[idx3]){
+      if(this.squares[idx1] === val && this.squares[idx1] === this.squares[idx2] && this.squares[idx1] === this.squares[idx3]){
         return this.squares[idx1];
       }
-    }
+
     return null;
   }
 
   checkFor3(val: string): boolean {
-    if(this.checkIndicesEqual() === val){
+    if( (this.checkIndicesEqual(val, 0,1,2) || 
+         this.checkIndicesEqual(val, 3,4,5) || 
+         this.checkIndicesEqual(val, 6,7,8) ||
+         this.checkIndicesEqual(val, 0,3,6) ||
+         this.checkIndicesEqual(val, 1,4,7) ||
+         this.checkIndicesEqual(val, 2,5,8) ||
+         this.checkIndicesEqual(val, 0,4,8) ||
+         this.checkIndicesEqual(val, 2,4,6) ) === val){
       return true;
     }
       return false;
