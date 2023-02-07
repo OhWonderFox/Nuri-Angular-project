@@ -1,46 +1,142 @@
-<div class="container">
-  <h1 class="text-white">Add Blog</h1>
-  <form>
-    <div class="form-group text-white">
-      <label for="title">Title</label>
-      <input
-        type="text"
-        name="title"
-        class="form-control"
-        placeholder="Add title"
-        #title
-      />
-    </div>
-    <div class="form-group text-white">
-      <label for="content">Content</label>
-      <input
-        type="text"
-        name="content"
-        class="form-control"
-        placeholder="Add content"
-        #content
-      />
-    </div>
-    <br />
-    <button
-      type="submit"
-      (click)="addBlog(title, content)"
-      class="btn btn-primary m-10"
-    >
-      Submit
-    </button>
-  </form>
-  <hr>
-  <br>
-  <h2 class="text-white">My Blog</h2>
-  <div style="padding:20px 0px" *ngFor="let blog of blogs">
-    <div class="card">
-      <div class="card-header">
-        {{ blog.title }}
-         <span style="float:right; color:red;" (click)="removeBlog(blog)">X</span> 
+<div class="wrapper">
+  <div class = "container">
+    <h1 class="text-white">Add Blog 1</h1>
+    <form>
+      <div class="form-group text-white">
+        <label for="title">Title</label>
+        <input
+          type="text"
+          name="title"
+          class="form-control"
+          placeholder="Add title"
+          #title
+        />
       </div>
-      <div class="card-body">
-        <p class="card-text">{{ blog.content }}</p>
+      <div class="form-group text-white">
+        <label for="content">Content</label>
+        <input
+          type="text"
+          name="content"
+          class="form-control"
+          placeholder="Add content"
+          #content
+        />
+      </div>
+      <br />
+      <button
+        type="submit"
+        (click)="addBlog(title, content)"
+        class="btn btn-primary m-10"
+      >
+        Submit
+      </button>
+    </form>
+    <hr>
+    <br>
+    <h2 class="text-white">My Blog</h2>
+    <div style="padding:20px 0px" *ngFor="let blog of blogs">
+      <div class="card">
+        <div class="card-header">
+          {{ blog.title }}
+           <span style="float:right; color:red;" (click)="removeBlog(blog)">X</span> 
+        </div>
+        <div class="card-body">
+          <p class="card-text">{{ blog.content }}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="container">
+    <h1 class="text-white">Add Blog 2</h1>
+    <form>
+      <div class="form-group text-white">
+        <label for="title">Title</label>
+        <input
+          type="text"
+          name="title"
+          class="form-control"
+          placeholder="Add title"
+          #title
+        />
+      </div>
+      <div class="form-group text-white">
+        <label for="content">Content</label>
+        <input
+          type="text"
+          name="content"
+          class="form-control"
+          placeholder="Add content"
+          #content
+        />
+      </div>
+      <br />
+      <button
+        type="submit"
+        (click)="addBlog(title, content)"
+        class="btn btn-primary m-10"
+      >
+        Submit
+      </button>
+    </form>
+    <hr>
+    <br>
+    <h2 class="text-white">My Blog</h2>
+    <div style="padding:20px 0px" *ngFor="let blog of blogs">
+      <div class="card">
+        <div class="card-header">
+          {{ blog.title }}
+           <span style="float:right; color:red;" (click)="removeBlog(blog)">X</span> 
+        </div>
+        <div class="card-body">
+          <p class="card-text">{{ blog.content }}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class = "container">
+    <h1 class="text-white">Add Blog 3</h1>
+    <form>
+      <div class="form-group text-white">
+        <label for="title">Title</label>
+        <input
+          type="text"
+          name="title"
+          class="form-control"
+          placeholder="Add title"
+          #title
+        />
+      </div>
+      <div class="form-group text-white">
+        <label for="content">Content</label>
+        <input
+          type="text"
+          name="content"
+          class="form-control"
+          placeholder="Add content"
+          #content
+        />
+      </div>
+      <br />
+      <button
+        type="submit"
+        (click)="addBlog(title, content)"
+        class="btn btn-primary m-10"
+      >
+        Submit
+      </button>
+    </form>
+    <hr>
+    <br>
+    <h2 class="text-white">My Blog</h2>
+    <div style="padding:20px 0px" *ngFor="let blog of blogs">
+      <div class="card">
+        <div class="card-header">
+          {{ blog.title }}
+           <span style="float:right; color:red;" (click)="removeBlog(blog)">X</span> 
+        </div>
+        <div class="card-body">
+          <p class="card-text">{{ blog.content }}</p>
+        </div>
       </div>
     </div>
   </div>

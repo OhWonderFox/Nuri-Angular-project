@@ -6,10 +6,9 @@
 .outer-cont{
     display: flex;
     flex-direction: column;
-    background: linear-gradient(to bottom left, #00ffcc 0%, #cc99ff 100%);
     align-items: center;
     justify-content: center;
-    height: 100vh;
+    text-align: center;
 }
 
 main{
