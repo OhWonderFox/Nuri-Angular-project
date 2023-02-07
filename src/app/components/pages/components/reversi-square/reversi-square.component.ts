@@ -6,5 +6,5 @@ import { Component } from '@angular/core';
   styleUrls: ['./reversi-square.component.css']
 })
 export class ReversiSquareComponent {
-
+  //@Input() value: 'X'|'O'|undefined
 }
