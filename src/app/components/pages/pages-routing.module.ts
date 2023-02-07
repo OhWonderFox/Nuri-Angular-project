@@ -6,6 +6,8 @@ import {Menu1Component} from './components/menu1/menu1.component';
 import {BlogComponent} from './components/blog/blog.component';
 import {GameComponent} from './components/game/game.component';
 import {SquareComponent} from './components/square/square.component';
+import {ReversiGameComponent} from './components/reversi-game/reversi-game.component';
+import {ReversiSquareComponent} from './components/reversi-square/reversi-square.component';
 import {UserResolver} from './resolvers/user.resolver';
 import {UsersResolver} from './resolvers/users.resolver';
 
@@ -17,7 +19,7 @@ const routes: Routes = [
       {path: 'menu1', component: Menu1Component},
       {path: 'blog', component: BlogComponent},
       {path: 'game', component: GameComponent},
-      {path: 'reversi-game', component: GameComponent},
+      {path: 'reversi-game', component: ReversiGameComponent},
       {path: '', redirectTo: 'home', pathMatch: 'full'},
     ],
   }
