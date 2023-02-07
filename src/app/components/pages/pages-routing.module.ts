@@ -17,6 +17,7 @@ const routes: Routes = [
       {path: 'menu1', component: Menu1Component},
       {path: 'blog', component: BlogComponent},
       {path: 'game', component: GameComponent},
+      {path: 'reversi-game', component: GameComponent},
       {path: '', redirectTo: 'home', pathMatch: 'full'},
     ],
   }

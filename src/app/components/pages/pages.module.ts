@@ -10,6 +10,8 @@ import { Menu1Component } from './components/menu1/menu1.component';
 import { BlogComponent } from './components/blog/blog.component';
 import { GameComponent } from './components/game/game.component';
 import { SquareComponent } from './components/square/square.component';
+import { ReversiSquareComponent } from './components/reversi-square/reversi-square.component';
+import { ReversiGameComponent } from './components/reversi-game/reversi-game.component';
 
 
 @NgModule({
@@ -21,7 +23,9 @@ import { SquareComponent } from './components/square/square.component';
     Menu1Component,
     BlogComponent,
     GameComponent,
-    SquareComponent
+    SquareComponent,
+    ReversiSquareComponent,
+    ReversiGameComponent
   ],
   imports: [
     CommonModule,
