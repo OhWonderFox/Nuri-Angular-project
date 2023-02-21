@@ -17,9 +17,9 @@ main{
     grid-gap: 0px;
 }
 
-app-board{
+app-square{
     border: 1px solid rgb(57,57,57) solid;
-    height: 200px;
+    height: 100px;
 }
 
 h1{

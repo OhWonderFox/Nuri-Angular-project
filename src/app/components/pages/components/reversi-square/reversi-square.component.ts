@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 
 @Component({
   selector: 'app-reversi-square',
@@ -6,5 +6,5 @@ import { Component } from '@angular/core';
   styleUrls: ['./reversi-square.component.css']
 })
 export class ReversiSquareComponent {
-  //@Input() value: 'X'|'O'|undefined
+  @Input() value: 'W'|'B'|undefined
 }

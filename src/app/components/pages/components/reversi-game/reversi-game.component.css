@@ -1,9 +1,4 @@
-.wrapper {
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-  }
-
-  *{
+*{
     margin:  0;
     padding: 0;
 }
@@ -19,12 +14,12 @@
 main{
     display: grid;
     grid-template-columns: 75px 75px 75px 75px 75px 75px 75px 75px;
-    /*grid-gap: 0px;*/
+    grid-gap: 0px;
 }
 
-app-board{
+app-reversi-square{
     border: 1px solid rgb(57,57,57) solid;
-    height: 200px;
+    height: 75px;
 }
 
 h1{
