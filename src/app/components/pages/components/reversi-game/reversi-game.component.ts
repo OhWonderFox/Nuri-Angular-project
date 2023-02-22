@@ -24,10 +24,14 @@ export class ReversiGameComponent {
     this.counter = 0;
     this.freshpage = false;
     this.xIsNext = true;
+    this.squares[27] = 'W';
+    this.squares[28] = 'B';
+    this.squares[36] = 'W';
+    this.squares[35] = 'B';
   }
 
   get player() {
-    return this.xIsNext?'W':'B'
+    return this.xIsNext?'B':'W'
   }
 
   makeMove(idx:number) {
@@ -36,20 +40,8 @@ export class ReversiGameComponent {
       this.xIsNext = !this.xIsNext;
       this.counter++;
     }
+  }
+
   
-    this.checkWinner();
 
-  }
-
-  checkIndicesEqual(): boolean{
-
-     return true;
-  }
-
-  checkFor3(val: string): boolean {
-    return true;
-  }
-
-  checkWinner(){
-  }
 }
