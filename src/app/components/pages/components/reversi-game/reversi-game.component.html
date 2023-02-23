@@ -7,7 +7,7 @@
         <button *ngIf="freshpage" (click)="newGame()">Start Game</button>
     
         <main *ngIf="!winner && !isDraw">
-            <app-reversi-square *ngFor="let val of squares; let i=index" [value]="val" (click)="makeMove(i)"></app-reversi-square>
+            <app-reversi-square *ngFor="let val of squares; let i=index" [value]="val" (click)="makeMove(i); getX(i); getY(i)"></app-reversi-square>
         </main>
     </div>
 </div>
