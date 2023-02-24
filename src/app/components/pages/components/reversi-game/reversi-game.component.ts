@@ -50,9 +50,9 @@ export class ReversiGameComponent {
     while(true){
       let sqare = this.squares[this.getIndex(newX,y)];
       if(newX > 7 ){ turnedCount = 0; break; }
+      else if(sqare === player){ break; }
       else if(sqare === opponent){ turnedCount ++; }
       else if(sqare === null){ turnedCount = 0; break; }
-      else if(sqare === player && turnedCount > 0 ){ break ;}
       newX++;
     }
 
