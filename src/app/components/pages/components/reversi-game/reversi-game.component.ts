@@ -39,50 +39,24 @@ export class ReversiGameComponent {
 
   getX(index: number) :number { return index % 8; }
 
-  getY(index: number) :number { return index / 8; }
+  getY(index: number) :number { return Math.floor(index / 8); }
 
-  checkValidMove(player: string, x: number, y: number) : boolean {
+  checkMoveRight(player: string, x: number, y: number) : number {
 
     let turnedCount = 0;
-    let j = 0;
+    let newX = x+1;
+    let opponent = player === 'W' ? 'B' : 'W';
 
-    if(this.squares[this.getIndex(x,y)] == null){
-      for(var i : number = x+1; i <= 7; i++){ //loop for right
-        if(this.squares[this.getIndex(i,y)] == !this.xIsNext){ turnedCount ++; }
-        else if(this.squares[this.getIndex(i,y)] == null || (this.squares[this.getIndex(i,y)] == !this.xIsNext && i == 7)){ turnedCount = 0;  }
-      }
-      for(var i : number = y+1; i <= 7; i++){ //loop for down
-        if(this.squares[this.getIndex(x,i)] == !this.xIsNext){ turnedCount ++; }
-        else if(this.squares[this.getIndex(x,i)] == null || (this.squares[this.getIndex(x,i)] == !this.xIsNext && i == 7)){ turnedCount = 0; }
-      }
-      for(var i : number = x-1; i >= 0; i--){ //loop for left
-        if(this.squares[this.getIndex(i,y)] == !this.xIsNext){ turnedCount ++; }
-        else if(this.squares[this.getIndex(i,y)] == null || (this.squares[this.getIndex(i,y)] == !this.xIsNext && i == 0)){ turnedCount = 0;  }
-      }
-      for(var i : number = x-1; i >= 0; i--){ //loop for up
-        if(this.squares[this.getIndex(i,y)] == !this.xIsNext){ turnedCount ++; }
-        else if(this.squares[this.getIndex(i,y)] == null || (this.squares[this.getIndex(i,y)] == !this.xIsNext && i == 0)){ turnedCount = 0; }
-      }
-      for(let i = x+1, j = y+1; i <= 7 && j<=7; i++, j++){ //loop right down diogonal
-        if(this.squares[this.getIndex(i,j)] == !this.xIsNext){ turnedCount ++; }
-        else if(this.squares[this.getIndex(i,j)] == null || (this.squares[this.getIndex(i,j)] == !this.xIsNext && i == 7 && j==7)){ turnedCount = 0;  }
-      }
-      for(let i = x-1, j = y+1; i >= 0 && j<=7; i--, j++){ //loop left down diogonal
-        if(this.squares[this.getIndex(i,j)] == !this.xIsNext){ turnedCount ++; }
-        else if(this.squares[this.getIndex(i,j)] == null || (this.squares[this.getIndex(i,j)] == !this.xIsNext && i == 0 && j==7)){ turnedCount = 0;  }
-      }
-      for(let i = x-1, j = y-1; i >= 0 && j>=0; i--, j--){ //loop left up diogonal
-        if(this.squares[this.getIndex(i,j)] == !this.xIsNext){ turnedCount ++; }
-        else if(this.squares[this.getIndex(i,j)] == null || (this.squares[this.getIndex(i,j)] == !this.xIsNext && i == 0 && j==0)){ turnedCount = 0;  }
-      }
-      for(let i = x+1, j = y-1; i <= 7 && j>=0; i++, j--){ //loop right up diogonal
-        if(this.squares[this.getIndex(i,j)] == !this.xIsNext){ turnedCount ++; }
-        else if(this.squares[this.getIndex(i,j)] == null || (this.squares[this.getIndex(i,j)] == !this.xIsNext && i == 7 && j==0)){ turnedCount = 0;  }
-      }
-    }  
+    while(true){
+      let sqare = this.squares[this.getIndex(newX,y)];
+      if(newX > 7 ){ turnedCount = 0; break; }
+      else if(sqare === opponent){ turnedCount ++; }
+      else if(sqare === null){ turnedCount = 0; break; }
+      else if(sqare === player && turnedCount > 0 ){ break ;}
+      newX++;
+    }
 
-  if(turnedCount > 0) { return true; }
-  else { return false;}
+  return turnedCount;
 
   }
 
