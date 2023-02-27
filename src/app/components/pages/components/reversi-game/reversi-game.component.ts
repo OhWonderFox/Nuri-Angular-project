@@ -41,19 +41,21 @@ export class ReversiGameComponent {
 
   getY(index: number) :number { return Math.floor(index / 8); }
 
-  checkMoveRight(player: string, x: number, y: number) : number {
+  checkMoveAnyDirection(player: string, x: number, y: number, incX: number, incY: number) : number {
 
     let turnedCount = 0;
-    let newX = x+1;
+    let newX = x + incX;
+    let newY = y+incY;
     let opponent = player === 'W' ? 'B' : 'W';
 
     while(true){
-      let sqare = this.squares[this.getIndex(newX,y)];
-      if(newX > 7 ){ turnedCount = 0; break; }
+      let sqare = this.squares[this.getIndex(newX,newY)];
+      if(newX > 7 || newY > 7 || newX < 0 || newY < 0){ turnedCount = 0; break; }
       else if(sqare === player){ break; }
       else if(sqare === opponent){ turnedCount ++; }
       else if(sqare === null){ turnedCount = 0; break; }
-      newX++;
+      newX+= incX;
+      newY+= incY;
     }
 
   return turnedCount;
@@ -62,9 +64,15 @@ export class ReversiGameComponent {
 
   makeMove(index:number) {
     if(!this.squares[index]) {
-      this.squares.splice(index,1,this.player)
-      this.xIsNext = !this.xIsNext;
+      if(this.squares[index] === null){
+        this.counter = this.checkMoveAnyDirection(this.squares[index], this.getX(index), this.getY(index), -1, 0);
+      }
+      if(this.counter > 0){ 
+        this.squares.splice(index,1,this.player);
+        this.xIsNext = !this.xIsNext;
+      }
     }
+    
     console.log(this.squares[index]);
   }
 
