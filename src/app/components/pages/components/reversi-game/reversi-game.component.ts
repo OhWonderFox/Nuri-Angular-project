@@ -57,21 +57,30 @@ export class ReversiGameComponent {
       newX+= incX;
       newY+= incY;
     }
-
   return turnedCount;
 
   }
 
   makeMove(index:number) {
-    if(!this.squares[index]) {
+      
+    let countTurn = 0;
       if(this.squares[index] === null){
-        this.counter = this.checkMoveAnyDirection(this.squares[index], this.getX(index), this.getY(index), -1, 0);
+        //if(!this.squares[index]){
+        countTurn = 
+          this.checkMoveAnyDirection(this.player, this.getX(index), this.getY(index), 1, 0)
+        + this.checkMoveAnyDirection(this.player, this.getX(index), this.getY(index), 1, 1)
+        + this.checkMoveAnyDirection(this.player, this.getX(index), this.getY(index), 0, 1)
+        + this.checkMoveAnyDirection(this.player, this.getX(index), this.getY(index), -1, 1)
+        + this.checkMoveAnyDirection(this.player, this.getX(index), this.getY(index), -1, 0)
+        + this.checkMoveAnyDirection(this.player, this.getX(index), this.getY(index), -1, -1)
+        + this.checkMoveAnyDirection(this.player, this.getX(index), this.getY(index), 0, -1)
+        + this.checkMoveAnyDirection(this.player, this.getX(index), this.getY(index), 1, -1);
       }
-      if(this.counter > 0){ 
-        this.squares.splice(index,1,this.player);
+      if(countTurn > 0){ 
+        //this.squares.splice(index,1,this.player);
+        this.squares[index] = this.player;
         this.xIsNext = !this.xIsNext;
       }
-    }
     
     console.log(this.squares[index]);
   }
