@@ -61,11 +61,28 @@ export class ReversiGameComponent {
 
   }
 
+  changeCatchedCoins(player: string, x: number, y: number, incX: number, incY: number) : void {
+   
+    let newX = x + incX;
+    let newY = y+incY;
+    let opponent = player === 'W' ? 'B' : 'W';
+
+    while(true){
+      let sqare = this.squares[this.getIndex(newX,newY)];
+      if(this.checkMoveAnyDirection(this.player, x, y, incX, incY) > 0){
+        this.squares[this.getIndex(newX,newY)] = player;
+      }
+      if(newX > 7 || newY > 7 || newX < 0 || newY < 0 || sqare === player || sqare === null){ break; }
+      newX+= incX;
+      newY+= incY;
+      console.log(this.squares[this.getIndex(newX,newY)]);
+    } 
+  }
+
   makeMove(index:number) {
       
     let countTurn = 0;
       if(this.squares[index] === null){
-        //if(!this.squares[index]){
         countTurn = 
           this.checkMoveAnyDirection(this.player, this.getX(index), this.getY(index), 1, 0)
         + this.checkMoveAnyDirection(this.player, this.getX(index), this.getY(index), 1, 1)
@@ -77,7 +94,14 @@ export class ReversiGameComponent {
         + this.checkMoveAnyDirection(this.player, this.getX(index), this.getY(index), 1, -1);
       }
       if(countTurn > 0){ 
-        //this.squares.splice(index,1,this.player);
+        this.changeCatchedCoins(this.player, this.getX(index), this.getY(index), 1, 0)
+        this.changeCatchedCoins(this.player, this.getX(index), this.getY(index), 1, 1)
+        this.changeCatchedCoins(this.player, this.getX(index), this.getY(index), 0, 1)
+        this.changeCatchedCoins(this.player, this.getX(index), this.getY(index), -1, 1)
+        this.changeCatchedCoins(this.player, this.getX(index), this.getY(index), -1, 0)
+        this.changeCatchedCoins(this.player, this.getX(index), this.getY(index), -1, -1)
+        this.changeCatchedCoins(this.player, this.getX(index), this.getY(index), 0, -1)
+        this.changeCatchedCoins(this.player, this.getX(index), this.getY(index), 1, -1);
         this.squares[index] = this.player;
         this.xIsNext = !this.xIsNext;
       }
