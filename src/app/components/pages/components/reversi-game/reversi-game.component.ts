@@ -10,7 +10,9 @@ export class ReversiGameComponent {
   squares:any = []
   xIsNext = true;
   winner = '';
-  counter = 0;
+  counter = 4;
+  counterW = 0;
+  counterB = 0;
   isDraw = '';
   freshpage = true;
 
@@ -22,7 +24,9 @@ export class ReversiGameComponent {
     this.squares = Array(64).fill(null);
     this.winner = '';
     this.isDraw = '';
-    this.counter = 0;
+    this.counter = 4;
+    this.counterW = 0;
+    this.counterB = 0;
     this.freshpage = false;
     this.xIsNext = true;
     this.squares[27] = 'W';
@@ -67,16 +71,16 @@ export class ReversiGameComponent {
     let newY = y+incY;
     let opponent = player === 'W' ? 'B' : 'W';
 
-    while(true){
-      let sqare = this.squares[this.getIndex(newX,newY)];
-      if(this.checkMoveAnyDirection(this.player, x, y, incX, incY) > 0){
-        this.squares[this.getIndex(newX,newY)] = player;
+    if(this.checkMoveAnyDirection(this.player, x, y, incX, incY) > 0){
+      while(true){
+        let sqare = this.squares[this.getIndex(newX,newY)];
+          this.squares[this.getIndex(newX,newY)] = player;
+        if(newX > 7 || newY > 7 || newX < 0 || newY < 0 || sqare === player || sqare === null){ break; }
+        newX+= incX;
+        newY+= incY;
+        console.log(this.squares[this.getIndex(newX,newY)]);
       }
-      if(newX > 7 || newY > 7 || newX < 0 || newY < 0 || sqare === player || sqare === null){ break; }
-      newX+= incX;
-      newY+= incY;
-      console.log(this.squares[this.getIndex(newX,newY)]);
-    } 
+                }
   }
 
   makeMove(index:number) {
@@ -104,9 +108,31 @@ export class ReversiGameComponent {
         this.changeCatchedCoins(this.player, this.getX(index), this.getY(index), 1, -1);
         this.squares[index] = this.player;
         this.xIsNext = !this.xIsNext;
+        this.counter++;
+      }
+
+      
+      if(this.counter === 64){
+        for(let i = 0; i < this.squares.lenght; i++)
+        {
+          if(this.squares[i] === 'W'){
+            this.counterW++;
+          }
+          else{
+            this.counterB++;
+          }
+        }
+        this.winner = this.counterW > this.counterB ? 'W' : 'B';
+      }
+
+      if(!this.winner && this.counter === 64) {
+        this.newGame();
       }
     
     console.log(this.squares[index]);
+    console.log(this.counter);
+    console.log(this.counterW);
+    console.log(this.counterB);
   }
 
 }
