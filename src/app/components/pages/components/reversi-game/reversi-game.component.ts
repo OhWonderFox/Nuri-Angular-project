@@ -8,13 +8,12 @@ import { toInteger } from '@ng-bootstrap/ng-bootstrap/util/util';
 })
 export class ReversiGameComponent {
   squares:any = []
-  xIsNext = true;
   winner = '';
-  counter = 4;
   counterW = 0;
   counterB = 0;
   isDraw = '';
   freshpage = true;
+  player = '';
 
   constructor() { }
 
@@ -24,19 +23,14 @@ export class ReversiGameComponent {
     this.squares = Array(64).fill(null);
     this.winner = '';
     this.isDraw = '';
-    this.counter = 4;
     this.counterW = 0;
     this.counterB = 0;
     this.freshpage = false;
-    this.xIsNext = true;
+    this.player = 'B';
     this.squares[27] = 'W';
     this.squares[28] = 'B';
     this.squares[36] = 'W';
     this.squares[35] = 'B';
-  }
-
-  get player() {
-    return this.xIsNext?'B':'W'
   }
 
   getIndex(x: number, y: number) : number{ return  y * 8 + x; }
@@ -44,6 +38,35 @@ export class ReversiGameComponent {
   getX(index: number) :number { return index % 8; }
 
   getY(index: number) :number { return Math.floor(index / 8); }
+
+  checkMove(player: string, index:number) :boolean{
+
+    let countTurn = 0;
+    if(this.squares[index] === null){
+      countTurn = 
+        this.checkMoveAnyDirection(player, this.getX(index), this.getY(index), 1, 0)
+      + this.checkMoveAnyDirection(player, this.getX(index), this.getY(index), 1, 1)
+      + this.checkMoveAnyDirection(player, this.getX(index), this.getY(index), 0, 1)
+      + this.checkMoveAnyDirection(player, this.getX(index), this.getY(index), -1, 1)
+      + this.checkMoveAnyDirection(player, this.getX(index), this.getY(index), -1, 0)
+      + this.checkMoveAnyDirection(player, this.getX(index), this.getY(index), -1, -1)
+      + this.checkMoveAnyDirection(player, this.getX(index), this.getY(index), 0, -1)
+      + this.checkMoveAnyDirection(player, this.getX(index), this.getY(index), 1, -1);
+    }
+    return countTurn > 0
+
+  }
+  checkAnyValidMoves(opponent: string) : boolean {
+    let validMove = false;
+    for(let i = 0; i < this.squares.length; i++){
+      if(this.squares[i] === null){
+        if(this.checkMove(opponent, i)){
+          validMove = true; break;
+        }
+      }
+    }
+    return validMove;
+  }
 
   checkMoveAnyDirection(player: string, x: number, y: number, incX: number, incY: number) : number {
 
@@ -84,20 +107,10 @@ export class ReversiGameComponent {
   }
 
   makeMove(index:number) {
-      
-    let countTurn = 0;
-      if(this.squares[index] === null){
-        countTurn = 
-          this.checkMoveAnyDirection(this.player, this.getX(index), this.getY(index), 1, 0)
-        + this.checkMoveAnyDirection(this.player, this.getX(index), this.getY(index), 1, 1)
-        + this.checkMoveAnyDirection(this.player, this.getX(index), this.getY(index), 0, 1)
-        + this.checkMoveAnyDirection(this.player, this.getX(index), this.getY(index), -1, 1)
-        + this.checkMoveAnyDirection(this.player, this.getX(index), this.getY(index), -1, 0)
-        + this.checkMoveAnyDirection(this.player, this.getX(index), this.getY(index), -1, -1)
-        + this.checkMoveAnyDirection(this.player, this.getX(index), this.getY(index), 0, -1)
-        + this.checkMoveAnyDirection(this.player, this.getX(index), this.getY(index), 1, -1);
-      }
-      if(countTurn > 0){ 
+
+    let opponent = this.player === 'W' ? 'B' : 'W';
+
+      if(this.checkMove(this.player, index)){ 
         this.changeCatchedCoins(this.player, this.getX(index), this.getY(index), 1, 0)
         this.changeCatchedCoins(this.player, this.getX(index), this.getY(index), 1, 1)
         this.changeCatchedCoins(this.player, this.getX(index), this.getY(index), 0, 1)
@@ -107,32 +120,28 @@ export class ReversiGameComponent {
         this.changeCatchedCoins(this.player, this.getX(index), this.getY(index), 0, -1)
         this.changeCatchedCoins(this.player, this.getX(index), this.getY(index), 1, -1);
         this.squares[index] = this.player;
-        this.xIsNext = !this.xIsNext;
-        this.counter++;
+        if(this.checkAnyValidMoves(opponent)){
+          this.player = this.player === 'W' ? 'B' : 'W' 
+        }
+        else {alert('the opponent ' + opponent + ' has no moves');} 
       }
 
-      
-      if(this.counter === 64){
-        for(let i = 0; i < this.squares.lenght; i++)
+      if(!this.checkAnyValidMoves(this.player) && !this.checkAnyValidMoves(opponent)){
+        for(let i = 0; i < this.squares.length; i++)
         {
           if(this.squares[i] === 'W'){
             this.counterW++;
           }
-          else{
+          else if(this.squares[i] === 'B'){
             this.counterB++;
           }
         }
         this.winner = this.counterW > this.counterB ? 'W' : 'B';
+        this.freshpage = true;
       }
-
-      if(!this.winner && this.counter === 64) {
-        this.newGame();
-      }
-    
+       
     console.log(this.squares[index]);
-    console.log(this.counter);
-    console.log(this.counterW);
-    console.log(this.counterB);
+
   }
 
 }
