@@ -6,7 +6,7 @@
         <h2 *ngIf="!winner && !isDraw && !freshpage">Current Player: {{player}}</h2>
         <button *ngIf="freshpage" (click)="newGame()">Start Game</button>
     
-        <main *ngIf="!winner && !isDraw">
+        <main *ngIf="!isDraw">
             <app-reversi-square *ngFor="let val of squares; let i=index" [value]="val" (click)="makeMove(i)"></app-reversi-square>
         </main>
     </div>

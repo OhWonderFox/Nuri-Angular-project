@@ -18,8 +18,8 @@ const routes: Routes = [
       {path: 'home', component: HomeComponent},
       {path: 'menu1', component: Menu1Component},
       {path: 'blog', component: BlogComponent},
-      {path: 'game', component: GameComponent},
-      {path: 'reversi-game', component: ReversiGameComponent},
+      {path: 'ttt-game', component: GameComponent},
+      {path: 'othello-game', component: ReversiGameComponent},
       {path: '', redirectTo: 'home', pathMatch: 'full'},
     ],
   }

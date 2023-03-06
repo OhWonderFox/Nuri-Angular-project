@@ -8,7 +8,7 @@ const routes: Routes = [
   {path: 'login', component: LoginComponent},
   {path: '', redirectTo: '/login', pathMatch: 'full'},
   {
-    path: 'admin',
+    path: '',
     canActivate: [AuthGuard],
     canDeactivate: [AuthGuard],
     loadChildren: () => import('./components/pages/pages.module').then((m) => m.PagesModule)
