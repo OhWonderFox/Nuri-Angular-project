@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { ReversiSquareComponent } from './reversi-square.component';
+import { SquareComponent } from './ttt-square.component';
 
-describe('ReversiSquareComponent', () => {
-  let component: ReversiSquareComponent;
-  let fixture: ComponentFixture<ReversiSquareComponent>;
+describe('SquareComponent', () => {
+  let component: SquareComponent;
+  let fixture: ComponentFixture<SquareComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ ReversiSquareComponent ]
+      declarations: [ SquareComponent ]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(ReversiSquareComponent);
+    fixture = TestBed.createComponent(SquareComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

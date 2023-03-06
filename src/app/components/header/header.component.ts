@@ -1,6 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {ActivatedRoute, ResolveEnd, ResolveStart, Router} from '@angular/router';
-import {AuthService} from '../../../../services/auth.service';
+import {AuthService} from '../../services/auth.service';
 import {filter, mapTo, merge, Observable} from 'rxjs';
 
 @Component({

@@ -1,13 +1,13 @@
 import {NgModule} from '@angular/core';
 import {RouterModule, Routes} from '@angular/router';
-import {AdminDashboardComponent} from './components/admin-dashboard/admin-dashboard.component';
-import {HomeComponent} from './components/home/home.component';
-import {Menu1Component} from './components/menu1/menu1.component';
-import {BlogComponent} from './components/blog/blog.component';
-import {GameComponent} from './components/game/game.component';
-import {SquareComponent} from './components/square/square.component';
-import {ReversiGameComponent} from './components/reversi-game/reversi-game.component';
-import {ReversiSquareComponent} from './components/reversi-square/reversi-square.component';
+import {AdminDashboardComponent} from '../admin-dashboard/admin-dashboard.component';
+import {HomeComponent} from '../home/home.component';
+import {Menu1Component} from '../menu1/menu1.component';
+import {BlogComponent} from '../blog/blog.component';
+import {GameComponent} from '../ttt/ttt-game/ttt-game.component';
+import {SquareComponent} from '../ttt/ttt-square/ttt-square.component';
+import {ReversiGameComponent} from '../othello/othello-game/othello-game.component';
+import {ReversiSquareComponent} from '../othello/othello-square/othello-square.component';
 import {UserResolver} from './resolvers/user.resolver';
 import {UsersResolver} from './resolvers/users.resolver';
 

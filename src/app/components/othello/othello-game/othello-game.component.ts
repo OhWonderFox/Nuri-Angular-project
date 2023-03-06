@@ -3,8 +3,8 @@ import { toInteger } from '@ng-bootstrap/ng-bootstrap/util/util';
 
 @Component({
   selector: 'app-reversi-game',
-  templateUrl: './reversi-game.component.html',
-  styleUrls: ['./reversi-game.component.css']
+  templateUrl: './othello-game.component.html',
+  styleUrls: ['./othello-game.component.css']
 })
 export class ReversiGameComponent {
   squares:any = []

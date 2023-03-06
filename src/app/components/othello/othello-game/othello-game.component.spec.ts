@@ -1,6 +1,6 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { ReversiGameComponent } from './reversi-game.component';
+import { ReversiGameComponent } from './othello-game.component';
 
 describe('ReversiGameComponent', () => {
   let component: ReversiGameComponent;

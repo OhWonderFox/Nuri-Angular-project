@@ -2,8 +2,8 @@ import { Component, ComponentFactoryResolver } from '@angular/core';
 
 @Component({
   selector: 'app-game',
-  templateUrl: './game.component.html',
-  styleUrls: ['./game.component.css']
+  templateUrl: './ttt-game.component.html',
+  styleUrls: ['./ttt-game.component.css']
 })
 export class GameComponent {
 
