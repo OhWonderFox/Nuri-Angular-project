@@ -14,6 +14,8 @@ export class ReversiGameComponent {
   isDraw = '';
   freshpage = true;
   player = '';
+  cWhite = 0;
+  cBlack = 0;
 
   constructor() { }
 
@@ -31,6 +33,8 @@ export class ReversiGameComponent {
     this.squares[28] = 'B';
     this.squares[36] = 'W';
     this.squares[35] = 'B';
+    this.cBlack = 2;
+    this.cWhite = 2;
   }
 
   getIndex(x: number, y: number) : number{ return  y * 8 + x; }
@@ -106,6 +110,30 @@ export class ReversiGameComponent {
                 }
   }
 
+  countWhiteCoins () : number {
+    let counter = 0;
+    for(let i = 0; i < this.squares.length; i++)
+        {
+          if(this.squares[i] === 'W'){
+            counter++;
+        }
+      }
+  return counter;
+
+  }
+
+  countBlackCoins () : number {
+    let counter = 0;
+    for(let i = 0; i < this.squares.length; i++)
+        {
+          if(this.squares[i] === 'B'){
+            counter++;
+        }
+      }
+  return counter;
+
+  }
+
   makeMove(index:number) {
 
     let opponent = this.player === 'W' ? 'B' : 'W';
@@ -139,7 +167,10 @@ export class ReversiGameComponent {
         this.winner = this.counterW > this.counterB ? 'W' : 'B';
         this.freshpage = true;
       }
-       
+
+      this.cBlack = this.countBlackCoins();
+      this.cWhite = this.countWhiteCoins();
+
     console.log(this.squares[index]);
 
   }

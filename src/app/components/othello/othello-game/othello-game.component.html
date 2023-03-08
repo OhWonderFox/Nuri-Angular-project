@@ -1,5 +1,8 @@
 <div class="wrapper">
-    <div></div>
+    <div class = "right-side">
+        <p *ngIf="!winner && !isDraw && !freshpage">White coins: {{cWhite}}</p>
+        <p *ngIf="!winner && !isDraw && !freshpage">Black coins: {{cBlack}}</p>
+    </div>
     <div class="outer-cont">
         <h2 *ngIf="winner">Player {{winner}} won!</h2>
         <h2 *ngIf="freshpage">Let's play Reversi</h2>
