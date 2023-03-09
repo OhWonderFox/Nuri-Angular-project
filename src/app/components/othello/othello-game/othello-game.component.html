@@ -1,17 +1,20 @@
-<div class="wrapper">
-    <div class = "right-side">
-        <p *ngIf="!winner && !isDraw && !freshpage">White coins: {{cWhite}}</p>
-        <p *ngIf="!winner && !isDraw && !freshpage">Black coins: {{cBlack}}</p>
+    <div class="wrapper">
+        <div class = "left-side">
+            <button *ngIf="freshpage" (click)="newGame()">Start the Game</button>
+            <div class="score">
+                <h2 *ngIf="winner" style="text-align: center;">Player {{winner}} won!</h2>
+                <h2 *ngIf="!winner && !isDraw && !freshpage">Current Player: {{player}}</h2>
+                <p *ngIf="!freshpage || (freshpage && winner)"><img src="assets/img/white.jpg" alt="white" /> {{cWhite}}</p>
+                <p *ngIf="!freshpage || (freshpage && winner)"><img src="assets/img/black.jpg" alt="black" /> {{cBlack}}</p>
+                <!--<p *ngIf="(!freshpage || (freshpage && winner)) && player === 'W'"><img src="assets/img/white.jpg" alt="white" /> {{cWhite}}</p>
+                <p *ngIf="(!freshpage || (freshpage && winner)) && player === 'B'"><img src="assets/img/black.jpg" alt="black" /> {{cBlack}}</p>-->
+            </div>
+        </div>
+        <div class="outer-cont">
+            <main *ngIf="!isDraw">
+                <app-reversi-square *ngFor="let val of squares; let i=index" [value]="val" (click)="makeMove(i)"></app-reversi-square>
+            </main>
+        </div>
     </div>
-    <div class="outer-cont">
-        <h2 *ngIf="winner">Player {{winner}} won!</h2>
-        <h2 *ngIf="freshpage">Let's play Reversi</h2>
-        <h2 *ngIf="!winner && !isDraw && !freshpage">Current Player: {{player}}</h2>
-        <button *ngIf="freshpage" (click)="newGame()">Start Game</button>
-    
-        <main *ngIf="!isDraw">
-            <app-reversi-square *ngFor="let val of squares; let i=index" [value]="val" (click)="makeMove(i)"></app-reversi-square>
-        </main>
-    </div>
-</div>
+
 
