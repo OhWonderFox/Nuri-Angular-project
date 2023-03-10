@@ -4,8 +4,8 @@
             <div class="score">
                 <h2 *ngIf="winner" style="text-align: center;">Player {{winner}} won!</h2>
                 <h2 *ngIf="!winner && !isDraw && !freshpage">Current Player: {{player}}</h2>
-                <p *ngIf="!freshpage || (freshpage && winner)"><img src="assets/img/white.jpg" alt="white" /> {{cWhite}}</p>
-                <p *ngIf="!freshpage || (freshpage && winner)"><img src="assets/img/black.jpg" alt="black" /> {{cBlack}}</p>
+                <p *ngIf="!freshpage || (freshpage && winner)"><img src="assets/img/white.jpg" [ngClass]="player === 'W' ? 'ball-img--bounce': ''" class="ball-img" alt="white" /> {{cWhite}}</p>
+                <p *ngIf="!freshpage || (freshpage && winner)"><img src="assets/img/black.jpg" [ngClass]="player === 'B' ? 'ball-img--bounce': ''" class="ball-img" alt="black" /> {{cBlack}}</p>
                 <!--<p *ngIf="(!freshpage || (freshpage && winner)) && player === 'W'"><img src="assets/img/white.jpg" alt="white" /> {{cWhite}}</p>
                 <p *ngIf="(!freshpage || (freshpage && winner)) && player === 'B'"><img src="assets/img/black.jpg" alt="black" /> {{cBlack}}</p>-->
             </div>

@@ -19,7 +19,10 @@ export class ReversiGameComponent {
 
   constructor() { }
 
-  ngOnInit(): void { }
+  ngOnInit(): void { 
+    this.newGame();
+
+  }
 
   newGame() {
     this.squares = Array(64).fill(null);
